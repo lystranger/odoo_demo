@@ -56,13 +56,34 @@ export class LrpPlan extends Component {
                 ]
             },
             { name: "James Newman", location: "Japan", gender: "male", col: "red", dob: "22/03/1998" },
+            { name: "Jamie Newhart", location: "India", gender: "male", col: "green", dob: "14/05/1985" },
+            {
+                name: "Gemma Jane", location: "China", gender: "female", col: "red", dob: "22/05/1982", _children: [
+                    { name: "Emily Sykes", location: "South Korea", gender: "female", col: "maroon", dob: "11/11/1970" },
+                ]
+            },
+            { name: "James Newman", location: "Japan", gender: "male", col: "red", dob: "22/03/1998" },
+            { name: "Jamie Newhart", location: "India", gender: "male", col: "green", dob: "14/05/1985" },
+            {
+                name: "Gemma Jane", location: "China", gender: "female", col: "red", dob: "22/05/1982", _children: [
+                    { name: "Emily Sykes", location: "South Korea", gender: "female", col: "maroon", dob: "11/11/1970" },
+                ]
+            },
+            { name: "James Newman", location: "Japan", gender: "male", col: "red", dob: "22/03/1998" },
+            { name: "Jamie Newhart", location: "India", gender: "male", col: "green", dob: "14/05/1985" },
+            {
+                name: "Gemma Jane", location: "China", gender: "female", col: "red", dob: "22/05/1982", _children: [
+                    { name: "Emily Sykes", location: "South Korea", gender: "female", col: "maroon", dob: "11/11/1970" },
+                ]
+            },
+            { name: "James Newman", location: "Japan", gender: "male", col: "red", dob: "22/03/1998" },
         ];
 
         let render_button = function (cell, formatterParams) {
             return "<button class='btn btn-primary btn-sm'>查看BOM</button>";
         };
 
-        let view_button_click =  (e, cell) => {
+        let view_button_click = (e, cell) => {
             let data = cell.getRow().getData();
             // 这里取得bom的id
             this.action.doAction({
@@ -120,7 +141,7 @@ export class LrpPlan extends Component {
                 { title: "第一批量开工日", field: "first_batch_start_date", width: 150, editor: "input" },
                 { title: "最后批量", field: "last_batch", width: 150, editor: "input" },
                 // 操作, fixed it right
-                { title: "操作", formatter: render_button, frozen:true, width: 100, hozAlign: "center", cellClick: view_button_click },
+                { title: "操作", formatter: render_button, frozen: true, width: 100, hozAlign: "center", cellClick: view_button_click },
             ]
         });
 
@@ -134,116 +155,117 @@ export class LrpPlan extends Component {
 
         //Generate print icon
         let render_progress = function (cell, formatterParams) {
+            let value = cell.getValue();
             let full_height = 60;
-            let height = 30;
-            let alpha = cell.getValue() / 100;
+            let height = parseInt(cell.getValue()) * 60 / 100;
+            let alpha = parseInt(cell.getValue()) / 100;
             let background_color = `RGBA(0, 100, 0, ${alpha})`;
             return `<div class="progress_container" style='height: ${full_height}px'><div class="progress" style="height:${height}px; background-color: ${background_color}"><div>`;
         };
 
         var cheeseData = [
-            { id: 1, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 2, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 3, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 4, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 5, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 6, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 7, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 8, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 9, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 10, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
-            { id: 11, type: "批次号", batch_number: "batch_number", version: "version", item_number: "item_number", week_19_1: "week_19_1", week_19_2: "week_19_2", week_19_3: "week_19_3", week_19_4: "week_19_4", week_19_5: "week_19_5", week_19_6: "week_19_6", week_19_7: "week_19_7", week_20_1: "week_20_1", week_20_2: "week_20_2", week_20_3: "week_20_3", week_20_4: "week_20_4", week_20_5: "week_20_5", week_20_6: "week_20_6", week_20_7: "week_20_7", week_21_1: "week_21_1", week_21_2: "week_21_2", week_21_3: "week_21_3", week_21_4: "week_21_4", week_21_5: "week_21_5", week_21_6: "week_21_6", week_21_7: "week_21_7", week_22_1: "week_22_1", week_22_2: "week_22_2", week_22_3: "week_22_3", week_22_4: "week_22_4", week_22_5: "week_22_5", week_22_6: "week_22_6", week_22_7: "week_22_7", week_23_1: "week_23_1", week_23_2: "week_23_2", week_23_3: "week_23_3", week_23_4: "week_23_4", week_23_5: "week_23_5", week_23_6: "week_23_6", week_23_7: "week_23_7", week_24_1: "week_24_1", week_24_2: "week_24_2", week_24_3: "week_24_3", week_24_4: "week_24_4", week_24_5: "week_24_5", week_24_6: "week_24_6", week_24_7: "week_24_7", week_25_1: "week_25_1", week_25_2: "week_25_2", week_25_3: "week_25_3", week_25_4: "week_25_4", week_25_5: "week_25_5", week_25_6: "week_25_6", week_25_7: "week_25_7" },
+            { id: 1, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 2, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 3, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 4, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 5, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 6, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 7, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 8, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 9, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 10, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
+            { id: 11, type: "批次号", batch_number: "20154", version: "2.1.23", item_number: "45", week_19_1: 30, week_19_2: 40, week_19_3: 36, week_19_4: 38, week_19_5: 38, week_19_6: 38, week_19_7: 38, week_20_1: 64, week_20_2: 64, week_20_3: 64, week_20_4: 64, week_20_5: 64, week_20_6: 64, week_20_7: 64, week_21_1: 38, week_21_2: 38, week_21_3: 38, week_21_4: 38, week_21_5: 38, week_21_6: 38, week_21_7: 38, week_22_1: 46, week_22_2: 46, week_22_3: 46, week_22_4: 46, week_22_5: 46, week_22_6: 46, week_22_7: 46, week_23_1: 55, week_23_2: 76, week_23_3: 76, week_23_4: 76, week_23_5: 76, week_23_6: 76, week_23_7: 76, week_24_1: 76, week_24_2: 76, week_24_3: 76, week_24_4: 76, week_24_5: 76, week_24_6: 76, week_24_7: 76, week_25_1: 76, week_25_2: 76, week_25_3: 76, week_25_4: 76, week_25_5: 76, week_25_6: 76, week_25_7: 76 },
         ]
 
         this.right_table = new Tabulator(this.rightTreeRef.el, {
             columnHeaderVertAlign: "bottom",
             data: cheeseData,
             columns: [
-                { title: "批次号", field: "batch_number", width: 160 },
-                { title: "版本", field: "version", width: 160 },
-                { title: "品号", field: "item_number", width: 160 },
+                { title: "批次号", field: "batch_number", width: 100, frozen: true },
+                { title: "版本", field: "version", width: 120, frozen: true },
+                { title: "品号", field: "item_number", width: 80, frozen: true },
                 {
                     title: "第19周",
                     columns: [
-                        { title: "7.21", field: "week_19_1", width: 60, formatter: render_progress },
-                        { title: "7.22", field: "week_19_2", width: 60, formatter: render_progress },
-                        { title: "7.23", field: "week_19_3", width: 60, formatter: render_progress },
-                        { title: "7.24", field: "week_19_4", width: 60, formatter: render_progress },
-                        { title: "7.25", field: "week_19_5", width: 60, formatter: render_progress },
-                        { title: "7.26", field: "week_19_6", width: 60, formatter: render_progress },
-                        { title: "7.27", field: "week_19_7", width: 60, formatter: render_progress },
+                        { title: "7.21", field: "week_19_1", width: 66, formatter: render_progress },
+                        { title: "7.22", field: "week_19_2", width: 66, formatter: render_progress },
+                        { title: "7.23", field: "week_19_3", width: 66, formatter: render_progress },
+                        { title: "7.24", field: "week_19_4", width: 66, formatter: render_progress },
+                        { title: "7.25", field: "week_19_5", width: 66, formatter: render_progress },
+                        { title: "7.26", field: "week_19_6", width: 66, formatter: render_progress },
+                        { title: "7.27", field: "week_19_7", width: 66, formatter: render_progress },
                     ],
                 },
                 {
                     title: "第20周",
                     columns: [
-                        { title: "7.28", field: "week_20_1", width: 60, formatter: render_progress },
-                        { title: "7.29", field: "week_20_2", width: 60, formatter: render_progress },
-                        { title: "7.30", field: "week_20_3", width: 60, formatter: render_progress },
-                        { title: "7.31", field: "week_20_4", width: 60, formatter: render_progress },
-                        { title: "8.1", field: "week_20_5", width: 60, formatter: render_progress },
-                        { title: "8.2", field: "week_20_6", width: 60, formatter: render_progress },
-                        { title: "8.3", field: "week_20_7", width: 60, formatter: render_progress },
+                        { title: "7.28", field: "week_20_1", width: 66, formatter: render_progress },
+                        { title: "7.29", field: "week_20_2", width: 66, formatter: render_progress },
+                        { title: "7.30", field: "week_20_3", width: 66, formatter: render_progress },
+                        { title: "7.31", field: "week_20_4", width: 66, formatter: render_progress },
+                        { title: "8.1", field: "week_20_5", width: 66, formatter: render_progress },
+                        { title: "8.2", field: "week_20_6", width: 66, formatter: render_progress },
+                        { title: "8.3", field: "week_20_7", width: 66, formatter: render_progress },
                     ],
                 },
                 {
                     title: "第21周",
                     columns: [
-                        { title: "8.4", field: "week_21_1", width: 160 },
-                        { title: "8.5", field: "week_21_2", width: 160 },
-                        { title: "8.6", field: "week_21_3", width: 160 },
-                        { title: "8.7", field: "week_21_4", width: 160 },
-                        { title: "8.8", field: "week_21_5", width: 160 },
-                        { title: "8.9", field: "week_21_6", width: 160 },
-                        { title: "8.10", field: "week_21_7", width: 160 },
+                        { title: "8.4", field: "week_21_1", width: 66, formatter: render_progress },
+                        { title: "8.5", field: "week_21_2", width: 66, formatter: render_progress },
+                        { title: "8.6", field: "week_21_3", width: 66, formatter: render_progress },
+                        { title: "8.7", field: "week_21_4", width: 66, formatter: render_progress },
+                        { title: "8.8", field: "week_21_5", width: 66, formatter: render_progress },
+                        { title: "8.9", field: "week_21_6", width: 66, formatter: render_progress },
+                        { title: "8.10", field: "week_21_7", width: 66, formatter: render_progress },
                     ],
                 },
                 {
                     title: "第22周",
                     columns: [
-                        { title: "8.11", field: "week_22_1", width: 160 },
-                        { title: "8.12", field: "week_22_2", width: 160 },
-                        { title: "8.13", field: "week_22_3", width: 160 },
-                        { title: "8.14", field: "week_22_4", width: 160 },
-                        { title: "8.15", field: "week_22_5", width: 160 },
-                        { title: "8.16", field: "week_22_6", width: 160 },
-                        { title: "8.17", field: "week_22_7", width: 160 },
+                        { title: "8.11", field: "week_22_1", width: 66, formatter: render_progress },
+                        { title: "8.12", field: "week_22_2", width: 66, formatter: render_progress },
+                        { title: "8.13", field: "week_22_3", width: 66, formatter: render_progress },
+                        { title: "8.14", field: "week_22_4", width: 66, formatter: render_progress },
+                        { title: "8.15", field: "week_22_5", width: 66, formatter: render_progress },
+                        { title: "8.16", field: "week_22_6", width: 66, formatter: render_progress },
+                        { title: "8.17", field: "week_22_7", width: 66, formatter: render_progress },
                     ],
                 },
                 {
                     title: "第23周",
                     columns: [
-                        { title: "8.18", field: "week_23_1", width: 160 },
-                        { title: "8.19", field: "week_23_2", width: 160 },
-                        { title: "8.20", field: "week_23_3", width: 160 },
-                        { title: "8.21", field: "week_23_4", width: 160 },
-                        { title: "8.22", field: "week_23_5", width: 160 },
-                        { title: "8.23", field: "week_23_6", width: 160 },
-                        { title: "8.24", field: "week_23_7", width: 160 },
+                        { title: "8.18", field: "week_23_1", width: 66, formatter: render_progress },
+                        { title: "8.19", field: "week_23_2", width: 66, formatter: render_progress },
+                        { title: "8.20", field: "week_23_3", width: 66, formatter: render_progress },
+                        { title: "8.21", field: "week_23_4", width: 66, formatter: render_progress },
+                        { title: "8.22", field: "week_23_5", width: 66, formatter: render_progress },
+                        { title: "8.23", field: "week_23_6", width: 66, formatter: render_progress },
+                        { title: "8.24", field: "week_23_7", width: 66, formatter: render_progress },
                     ],
                 },
                 {
                     title: "第24周",
                     columns: [
-                        { title: "8.25", field: "week_24_1", width: 160 },
-                        { title: "8.26", field: "week_24_2", width: 160 },
-                        { title: "8.27", field: "week_24_3", width: 160 },
-                        { title: "8.28", field: "week_24_4", width: 160 },
-                        { title: "8.29", field: "week_24_5", width: 160 },
-                        { title: "8.30", field: "week_24_6", width: 160 },
-                        { title: "8.31", field: "week_24_7", width: 160 },
+                        { title: "8.25", field: "week_24_1", width: 66, formatter: render_progress },
+                        { title: "8.26", field: "week_24_2", width: 66, formatter: render_progress },
+                        { title: "8.27", field: "week_24_3", width: 66, formatter: render_progress },
+                        { title: "8.28", field: "week_24_4", width: 66, formatter: render_progress },
+                        { title: "8.29", field: "week_24_5", width: 66, formatter: render_progress },
+                        { title: "8.30", field: "week_24_6", width: 66, formatter: render_progress },
+                        { title: "8.31", field: "week_24_7", width: 66, formatter: render_progress },
                     ],
                 },
                 {
                     title: "第25周",
                     columns: [
-                        { title: "9.1", field: "week_25_1", width: 160 },
-                        { title: "9.2", field: "week_25_2", width: 160 },
-                        { title: "9.3", field: "week_25_3", width: 160 },
-                        { title: "9.4", field: "week_25_4", width: 160 },
-                        { title: "9.5", field: "week_25_5", width: 160 },
-                        { title: "9.6", field: "week_25_6", width: 160 },
-                        { title: "9.7", field: "week_25_7", width: 160 },
+                        { title: "9.1", field: "week_25_1", width: 66, formatter: render_progress },
+                        { title: "9.2", field: "week_25_2", width: 66, formatter: render_progress },
+                        { title: "9.3", field: "week_25_3", width: 66, formatter: render_progress },
+                        { title: "9.4", field: "week_25_4", width: 66, formatter: render_progress },
+                        { title: "9.5", field: "week_25_5", width: 66, formatter: render_progress },
+                        { title: "9.6", field: "week_25_6", width: 66, formatter: render_progress },
+                        { title: "9.7", field: "week_25_7", width: 66, formatter: render_progress },
                     ]
                 },
             ]

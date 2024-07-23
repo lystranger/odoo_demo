@@ -3,14 +3,17 @@
 
     <t t-name="lrp_plan.plan">
         <div class="d-flex flex-column lrp_plan">
-
-            <div class="sub_form">
+            <div class="sub_form p-2">
                 <YlhcSubForm resModel="'lrp_plan.plan_wizard'" mode="'edit'" onRecordSaved="(record) => this.onRecordSaved(record)" />
             </div>
 
             <div class="content d-flex" style="padding:10px">
-                <div class="left-table me-2" t-ref="leftTree" />
-                <div class="right-table ms-2" t-ref="rightTree" />
+                <div class="left-table card p-2">
+                    <div t-ref="leftTree" />
+                </div>
+                <div class="right-table card p-2 ms-2">
+                    <div t-ref="rightTree" />
+                </div>
             </div>
 
         </div>
