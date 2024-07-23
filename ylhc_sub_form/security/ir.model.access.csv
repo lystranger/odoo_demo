@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ylhc_sub_form_ylhc_sub_form,ylhc_sub_form.ylhc_sub_form,model_ylhc_sub_form_ylhc_sub_form,base.group_user,1,1,1,1

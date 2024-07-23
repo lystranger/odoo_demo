@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="lrp_plan.plan">
+        <div class="d-flex flex-column lrp_plan">
+
+            <div class="sub_form">
+                <YlhcSubForm resModel="'lrp_plan.plan_wizard'" mode="'edit'" onRecordSaved="(record) => this.onRecordSaved(record)" />
+            </div>
+
+            <div class="content d-flex" style="padding:10px">
+                <div class="left-table me-2" t-ref="leftTree" />
+                <div class="right-table ms-2" t-ref="rightTree" />
+            </div>
+
+        </div>
+    </t>
+
+</templates>
+
+
+

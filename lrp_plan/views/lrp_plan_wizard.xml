@@ -1,0 +1,80 @@
+
+<odoo>
+    <data>
+    
+        <record model="ir.ui.view" id="lrp_plan.plan_wizard_list">
+            <field name="name">Plan Wizard list </field>
+            <field name="model">lrp_plan.plan_wizard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="销售订单"/>
+                    <field name="factory" string="所属工厂"/>
+                    <field name="batch_number" string="计划批号"/>
+                    <field name="status" string="状态"/>
+                    <field name="schedule_date" string="计划日期"/>
+                    <field name="notes" string="备注"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="lrp_plan.plan_wizard_form">
+            <field name="name">Plan Wizard form </field>
+            <field name="model">lrp_plan.plan_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="id" invisible="1" />
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">name</label>
+                            <div class="col-sm-10">
+                                <field name="name" string="销售订单"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="factory" class="col-sm-2 col-form-label">factory</label>
+                            <div class="col-sm-10">
+                                <field name="factory" string="所属工厂"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="batch_number" class="col-sm-2 col-form-label">batch_number</label>
+                            <div class="col-sm-10">
+                                <field name="batch_number" string="计划批号"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="status" class="col-sm-2 col-form-label">status</label>
+                            <div class="col-sm-10">
+                                <field name="status" string="状态"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="schedule_date" class="col-sm-2 col-form-label">schedule_date</label>
+                            <div class="col-sm-10">
+                                <field name="schedule_date" string="计划日期"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="notes" class="col-sm-2 col-form-label">notes</label>
+                            <div class="col-sm-10">
+                                <field name="notes" string="备注"/>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button string="执行排产" special="save" class="btn-primary"/>
+                        </div>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="lrp_plan.plan_wizard_act_window">
+            <field name="name">Plan Wizard</field>
+            <field name="res_model">lrp_plan.plan_wizard</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
