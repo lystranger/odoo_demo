@@ -13,9 +13,14 @@ export class LrpPlan extends Component {
         this.orm = useService('orm')
         this.action = useService("action");
 
+        this.rootRef = useRef("root");
+
         // tree ref
         this.leftTreeRef = useRef("leftTree");
         this.rightTreeRef = useRef("rightTree");
+
+        this.leftArrow = useRef("leftArrow");
+        this.rightArrow = useRef("rightArrow");
 
         // left tree
         useEffect(() => {
@@ -32,6 +37,30 @@ export class LrpPlan extends Component {
         this.data = record.data
         // 左这里写的你的计算逻辑。生成计划以后调用
         // this.left_table.setData(data);
+    }
+
+    on_click_left() {
+        if (this.leftArrow.el.classList.contains("inversed")) {
+            this.leftArrow.el.classList.remove("inversed");
+            this.rightArrow.el.classList.remove("d-none");
+            this.rootRef.el.querySelector(".left-table").classList.remove("d-none");
+        } else {
+            this.leftArrow.el.classList.add("inversed");
+            this.rightArrow.el.classList.add("d-none");
+            this.rootRef.el.querySelector(".left-table").classList.add("d-none");
+        }
+    }
+
+    on_click_right() {
+        if (this.rightArrow.el.classList.contains("inversed")) {
+            this.rightArrow.el.classList.remove("inversed");
+            this.leftArrow.el.classList.remove("d-none");
+            this.rootRef.el.querySelector(".right-table").classList.remove("d-none");
+        } else {
+            this.rightArrow.el.classList.add("inversed");
+            this.leftArrow.el.classList.add("d-none");
+            this.rootRef.el.querySelector(".right-table").classList.add("d-none");
+        }
     }
 
     instance_left_tree() {

@@ -13,8 +13,9 @@
     .search {
         display: flex;
     }
+    
 
-    .o_form_sheet_bg {
+    .o_form_view, .o_form_sheet_bg {
         max-width: 100%;
     }
 
@@ -43,7 +44,15 @@
         }
 
         .left-table, .right-table {
-            width: 50%;
+            // width: 50%;
+            flex: 1 1 50%;
+        }
+    }
+
+    .hide_left, .hide_right {
+        transition: all 0.5s;
+        &.inversed {
+            rotate: 180deg;
         }
     }
 }

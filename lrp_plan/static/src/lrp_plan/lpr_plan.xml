@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="lrp_plan.plan">
-        <div class="d-flex flex-column lrp_plan">
+        <div class="d-flex flex-column lrp_plan" t-ref="root">
             <div class="sub_form p-2">
                 <YlhcSubForm resModel="'lrp_plan.plan_wizard'" mode="'edit'" onRecordSaved="(record) => this.onRecordSaved(record)" />
             </div>
@@ -10,6 +10,10 @@
             <div class="content d-flex" style="padding:10px">
                 <div class="left-table card p-2">
                     <div t-ref="leftTree" />
+                </div>
+                <div class="d-flex flex-column align-item-center justify-content-center" style="width:30px; padding: 5px">
+<svg class="icon hide_left" t-on-click="on_click_left" t-ref="leftArrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M603.3 327.5l-246 178c-4.4 3.2-4.4 9.7 0 12.9l246 178c5.3 3.8 12.7 0 12.7-6.5V643c0-10.2-4.9-19.9-13.2-25.9L457.4 512l145.4-105.2c8.3-6 13.2-15.6 13.2-25.9V334c0-6.5-7.4-10.3-12.7-6.5z" p-id="1451" fill="#cdcdcd"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" fill="#bfbfbf"></path></svg>
+<svg class="icon hide_right" t-on-click="on_click_right" t-ref="rightArrow" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2557" width="32" height="32"><path d="M512 97.52381c228.912762 0 414.47619 185.563429 414.47619 414.47619s-185.563429 414.47619-414.47619 414.47619S97.52381 740.912762 97.52381 512 283.087238 97.52381 512 97.52381z m0 73.142857C323.486476 170.666667 170.666667 323.486476 170.666667 512s152.81981 341.333333 341.333333 341.333333 341.333333-152.81981 341.333333-341.333333S700.513524 170.666667 512 170.666667z m-48.761905 118.954666L685.616762 512 463.238095 734.378667 411.526095 682.666667l170.666667-170.666667-170.666667-170.666667L463.238095 289.621333z" fill="#bfbfbf"></path></svg>
                 </div>
                 <div class="right-table card p-2 ms-2">
                     <div t-ref="rightTree" />
