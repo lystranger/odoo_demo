@@ -37,6 +37,7 @@ export class LrpPlan extends Component {
         this.data = record.data
         // 左这里写的你的计算逻辑。生成计划以后调用
         // this.left_table.setData(data);
+        // editor:"list",
     }
 
     on_click_left() {
@@ -132,8 +133,11 @@ export class LrpPlan extends Component {
                 { title: "品名", field: "name", width: 200, responsive: 0, editor: "input" },
                 { title: "规格", field: "specification", width: 150, editor: "input" },
                 { title: "生产数量", field: "production_quantity", width: 150, responsive: 2 },
-                { title: "单位", field: "unit", width: 150 },
-                { title: "需求日", field: "demand_date", hozAlign: "center", sorter: "date", width: 150 },
+                { title: "单位", field: "unit", width: 150, editor:"list", editorParams:{
+                    'values': ['个', '件', '套', '箱', '台', '米', '千克', '吨', '升', '立方米', '平方米', '米', '码', '英寸', '英尺', '英里'],
+                    'multiselect': true,
+                }},
+                { title: "需求日", field: "demand_date", hozAlign: "center", sorter: "date", width: 150, editor: "date" },
                 { title: "开工日", field: "start_date", hozAlign: "center", sorter: "date", width: 150 },
                 { title: "完工日", field: "end_date", hozAlign: "center", sorter: "date", width: 150 },
                 { title: "仓库", field: "warehouse", width: 150 },
