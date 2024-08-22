@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sz_plan_plan,sz_plan.plan,model_sz_plan_plan,base.group_user,1,1,1,1
+access_sz_plan_production_plan,sz_plan.production_plan,model_sz_plan_production_plan,base.group_user,1,1,1,1
+access_sz_plan_daily_completion_status,sz_plan.daily_completion_status,model_sz_plan_daily_completion_status,base.group_user,1,1,1,1
+access_sz_plan_plan_wizard,sz_plan.plan_wizard,model_sz_plan_plan_wizard,,1,1,1,1

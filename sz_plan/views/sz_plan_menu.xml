@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+
+    <!-- client action -->
+    <record id="sz_plan.action_window" model="ir.actions.client">
+      <field name="name">LRP Plan</field>
+      <field name="tag">sz_plan</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="计划" id="sz_plan.menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="计划" 
+        id="sz_plan.sz_plan" 
+        parent="sz_plan.menu_root"
+        action="sz_plan.action_window"/>
+
+  </data>
+</odoo>

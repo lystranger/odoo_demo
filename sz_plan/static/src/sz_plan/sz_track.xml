@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="sz_plan.plan">
+        <div class="d-flex flex-column sz_plan" t-ref="root">
+        
+            <div class="content d-flex" style="padding:10px">
+                <div class="left-table card p-2">
+                    <div t-ref="tree" />
+                </div>
+            </div>
+
+        </div>
+    </t>
+
+</templates>
+
+
+
